@@ -26,6 +26,7 @@ import com.coolweather.android.util.HttpUtil;
 import com.coolweather.android.util.Utility;
 
 import org.litepal.crud.DataSupport;
+import org.w3c.dom.Text;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -83,6 +84,7 @@ AreaFragment extends Fragment {
         backButton = (Button) view.findViewById(R.id.back_button);
         listView = (ListView) view.findViewById(R.id.list_view);
         adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1, dataList);
+
         listView.setAdapter(adapter);
         return view;
     }
@@ -90,6 +92,7 @@ AreaFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        //listView的点击事件
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -115,6 +118,7 @@ AreaFragment extends Fragment {
                 }
             }
         });
+        //返回按钮的点击事件
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
